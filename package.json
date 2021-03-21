@@ -1,0 +1,20 @@
+{
+  "name": "ensemble-docs",
+  "version": "0.0.1",
+  "description": "Repo with documentation files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git+https://github.com/loltgt/ensemble-docs.git",
+  "author": "Leonardo Laureti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/loltgt/ensemble-docs/issues"
+  },
+  "homepage": "https://github.com/loltgt/ensemble-docs#readme",
+  "devDependencies": {
+    "@docusaurus/core": "^2.0.0-alpha.72",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.72"
+  }
+}
