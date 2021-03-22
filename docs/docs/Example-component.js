@@ -1,52 +1,76 @@
 import React from 'react';
 
 class Example extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.postLoad = this.postLoad.bind(this);
+  }
+
   componentDidMount() {
     this.load();
 
-    this.elapsed = 0;
-    this.timerID = setInterval(() => this.loaded(), 3e2);
+    // this.elapsed = 0;
+    // this.timerID = setInterval(() => this.loaded(), 3e2);
   }
 
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-  }
+  // componentWillUnmount() {
+  //   clearInterval(this.timerID);
+  // }
 
-  loadScript(src) {
+  loadScript(src, cb) {
     const script = document.createElement('script');
     script.src = src;
     script.async = true;
 
+    if (cb && typeof cb == 'function') {
+      script.onload = cb;
+    }
+
     document.body.appendChild(script);
   }
 
-  loadStyle(src) {
+  loadStyle(src, cb) {
     const style = document.createElement('link');
     style.rel = 'stylesheet';
     style.href = src;
 
+    if (cb && typeof cb == 'function') {
+      style.onload = cb;
+    }
+
     document.head.appendChild(style);
   }
 
-  loaded() {
-    if ('ensemble' in window) {
-      clearInterval(this.timerID);
+  // loaded() {
+  //   if ('ensemble' in window) {
+  //     clearInterval(this.timerID);
 
-      this.postLoad();
+  //     this.postLoad();
+  //   }
+
+  //   if (this.elapsed > 3e9) {
+  //     clearInterval(this.timerID);
+  //   }
+
+  //   this.elapsed += 3e2;
+  // }
+
+  openTrigger(instance) {
+    console.log(instance);
+
+    if (! instance) {
+      return;
     }
 
-    if (this.elapsed > 3e9) {
-      clearInterval(this.timerID);
-    }
-
-    this.elapsed += 3e2;
+    instance.open();
   }
 }
 
 
 class ExampleModal extends Example {
   load() {
-    this.loadScript('../ensemble-modal/dist/js/ensemble-modal.min.js');
+    this.loadScript('../ensemble-modal/dist/js/ensemble-modal.min.js', this.postLoad);
     this.loadStyle('../ensemble-modal/dist/css/ensemble-modal.min.css');
   }
 
@@ -64,7 +88,7 @@ class ExampleModal extends Example {
             <p>Lorem ipsum dolor sit amet.</p>
           </div>
         </div>
-        <button className="button button--primary button--lg" onClick={() => this.modal.open()}>Open this in a modal</button>
+        <button className="button button--primary button--lg" onClick={() => this.openTrigger(this.modal)}>Open this in a modal</button>
       </div>
     );
   }
@@ -73,7 +97,7 @@ class ExampleModal extends Example {
 
 class ExampleLightbox extends Example {
   load() {
-    this.loadScript('../ensemble-lightbox/dist/js/ensemble-lightbox.min.js');
+    this.loadScript('../ensemble-lightbox/dist/js/ensemble-lightbox.min.js', this.postLoad);
     this.loadStyle('../ensemble-lightbox/dist/css/ensemble-lightbox.min.css');
   }
 
@@ -91,7 +115,7 @@ class ExampleLightbox extends Example {
   render() {
     return (
       <div className="example">
-        <button className="button button--primary button--lg" onClick={() => this.lightbox.open()}>Open a lightbox</button>
+        <button className="button button--primary button--lg" onClick={() => this.openTrigger(this.lightbox)}>Open a lightbox</button>
       </div>
     );
   }
@@ -100,7 +124,7 @@ class ExampleLightbox extends Example {
 
 class ExampleSocialShare extends Example {
   load() {
-    this.loadScript('../ensemble-social-share/dist/js/ensemble-social-share.min.js');
+    this.loadScript('../ensemble-social-share/dist/js/ensemble-social-share.min.js', this.postLoad);
     this.loadStyle('../ensemble-social-share/dist/css/ensemble-social-share.min.css');
     this.loadStyle('../ensemble-social-share/iconset.tmp.css');
   }
