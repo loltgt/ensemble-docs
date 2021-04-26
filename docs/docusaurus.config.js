@@ -2,8 +2,8 @@
 module.exports = {
   title: 'ensemble',
   tagline: 'loltgt ensemble project',
-  url: 'https://loltgt.github.io/ensemble',
-  baseUrl: '/',
+  url: 'https://loltgt.github.io',
+  baseUrl: '/ensemble/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -15,7 +15,7 @@ module.exports = {
       {
         id: 'demos',
         path: 'demos',
-        editUrl: 'https://github.com/loltgt/ensemble',
+        editUrl: 'https://github.com/loltgt/ensemble-docs',
         editCurrentVersion: true,
         routeBasePath: 'demos',
         sidebarPath: require.resolve('./sidebars-demos.js')
@@ -67,7 +67,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `<p>Copyright © Leonardo Laureti</p>\n<p>Built with Docusaurus.</p>`,
+      copyright: '<p>Copyright © Leonardo Laureti</p>\n<p>Built with Docusaurus.</p>',
     },
   },
   presets: [
@@ -76,7 +76,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/loltgt/ensemble'
+          editUrl: 'https://github.com/loltgt/ensemble-docs'
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
