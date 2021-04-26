@@ -2,7 +2,7 @@
 module.exports = {
   title: 'ensemble',
   tagline: 'loltgt ensemble project',
-  url: 'https://loltgt.github.io/ensemble-docs',
+  url: 'https://loltgt.github.io/ensemble',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
