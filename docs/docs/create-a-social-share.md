@@ -9,7 +9,8 @@ TODO
 Example:
 
 ```js
-new ensemble.SocialShare(document.getElementById('my-div-placeholder'));
+//TODO arguments
+new ensemble.SocialShare(document.getElementById('my-div-placeholder'), {});
 
 ```
 

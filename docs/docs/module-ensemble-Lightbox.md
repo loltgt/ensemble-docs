@@ -1,6 +1,6 @@
 ---
 title: ensemble.Lightbox
-slug: /module-ensemble-lightbox
+slug: /module-ensemble-Lightbox
 ---
 <a name="module_ensemble"></a>
 
@@ -8,7 +8,7 @@ slug: /module-ensemble-lightbox
 
 * [ensemble](#module_ensemble)
     * [~Lightbox](#module_ensemble..Lightbox) ⇐ <code>Modal</code>
-        * [new Lightbox(element, options)](#new_module_ensemble..Lightbox_new)
+        * [new Lightbox([element], options)](#new_module_ensemble..Lightbox_new)
         * [._defaults()](#module_ensemble..Lightbox+_defaults) ⇒ <code>object</code>
         * [._bindings()](#module_ensemble..Lightbox+_bindings)
         * [.generator()](#module_ensemble..Lightbox+generator)
@@ -30,9 +30,13 @@ ensemble.Lightbox component.
 
 **Kind**: inner class of [<code>ensemble</code>](#module_ensemble)  
 **Extends**: <code>Modal</code>  
+**Todo**
+
+- [ ] arguments
+
 
 * [~Lightbox](#module_ensemble..Lightbox) ⇐ <code>Modal</code>
-    * [new Lightbox(element, options)](#new_module_ensemble..Lightbox_new)
+    * [new Lightbox([element], options)](#new_module_ensemble..Lightbox_new)
     * [._defaults()](#module_ensemble..Lightbox+_defaults) ⇒ <code>object</code>
     * [._bindings()](#module_ensemble..Lightbox+_bindings)
     * [.generator()](#module_ensemble..Lightbox+generator)
@@ -49,14 +53,17 @@ ensemble.Lightbox component.
 
 <a name="new_module_ensemble..Lightbox_new"></a>
 
-#### new Lightbox(element, options)
+#### new Lightbox([element], options)
+Constructor method.
+
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| element | <code>Element</code> |  | An optional Element node for lightbox grouping |
+| [element] | <code>Element</code> |  | An optional Element node for lightbox grouping |
 | options | <code>object</code> |  | Options object |
 | [options.ns] | <code>string</code> | <code>&quot;modal&quot;</code> | The namespace for lightbox |
 | [options.root] | <code>string</code> | <code>&quot;body&quot;</code> | The root Element node |
+| [options.className] | <code>string</code> \| <code>Array.&lt;string&gt;</code> | <code>&quot;[modal, modal-lightbox]&quot;</code> | The component CSS class name |
 | [options.selector] | <code>string</code> |  | A selector to find elements |
 | [options.contents] | <code>object</code> |  | An object of contents |
 | [options.fx] | <code>boolean</code> | <code>true</code> | Switch for allow effects |
@@ -83,6 +90,12 @@ ensemble.Lightbox component.
 | [options.onSlide] | <code>function</code> |  | onSlide callback, fires when slide |
 | [options.onCaption] | <code>function</code> |  | onCaption callback, fires when a caption will be shown |
 
+**Example**  
+```js
+var lightbox = new ensemble.Lightbox({ contents: [ { type: 'image', src: '../img/docusaurus.png' } ] });
+lightbox.open();
+lightbox.close();
+```
 <a name="module_ensemble..Lightbox+_defaults"></a>
 
 #### lightbox.\_defaults() ⇒ <code>object</code>

@@ -2,7 +2,7 @@
 module.exports = {
   title: 'ensemble',
   tagline: 'loltgt ensemble project',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://loltgt.github.io/ensemble-docs',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -67,7 +67,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Leonardo Laureti. Built with Docusaurus.`,
+      copyright: `<p>Copyright © Leonardo Laureti</p>\n<p>Built with Docusaurus.</p>`,
     },
   },
   presets: [

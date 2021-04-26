@@ -9,7 +9,8 @@ TODO
 Example:
 
 ```js
-var modal = new ensemble.Modal('#inline-content-to-display');
+//TODO arguments
+var modal = new ensemble.Modal(document.getElementById('inline-content-to-display'), {});
 
 ```
 

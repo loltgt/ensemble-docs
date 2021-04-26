@@ -1,6 +1,6 @@
 ---
 title: ensemble.Modal
-slug: /module-ensemble-modal
+slug: /module-ensemble-Modal
 ---
 <a name="module_ensemble"></a>
 
@@ -8,7 +8,7 @@ slug: /module-ensemble-modal
 
 * [ensemble](#module_ensemble)
     * [~Modal](#module_ensemble..Modal) ⇐ <code>base</code>
-        * [new Modal(element, options)](#new_module_ensemble..Modal_new)
+        * [new Modal([element], options)](#new_module_ensemble..Modal_new)
         * [._defaults()](#module_ensemble..Modal+_defaults) ⇒ <code>object</code>
         * [._bindings()](#module_ensemble..Modal+_bindings)
         * [.generator()](#module_ensemble..Modal+generator)
@@ -30,9 +30,13 @@ ensemble.Modal component.
 
 **Kind**: inner class of [<code>ensemble</code>](#module_ensemble)  
 **Extends**: <code>base</code>  
+**Todo**
+
+- [ ] arguments
+
 
 * [~Modal](#module_ensemble..Modal) ⇐ <code>base</code>
-    * [new Modal(element, options)](#new_module_ensemble..Modal_new)
+    * [new Modal([element], options)](#new_module_ensemble..Modal_new)
     * [._defaults()](#module_ensemble..Modal+_defaults) ⇒ <code>object</code>
     * [._bindings()](#module_ensemble..Modal+_bindings)
     * [.generator()](#module_ensemble..Modal+generator)
@@ -49,16 +53,17 @@ ensemble.Modal component.
 
 <a name="new_module_ensemble..Modal_new"></a>
 
-#### new Modal(element, options)
+#### new Modal([element], options)
 Constructor method.
 
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| element | <code>Element</code> |  | A valid Element node to display in the modal dialog |
-| options | <code>objects</code> |  | Options object |
+| [element] | <code>Element</code> |  | A valid Element node to display in the modal dialog |
+| options | <code>object</code> |  | Options object |
 | [options.ns] | <code>string</code> | <code>&quot;modal&quot;</code> | The namespace for modal |
 | [options.root] | <code>string</code> | <code>&quot;body&quot;</code> | The root Element node |
+| [options.className] | <code>string</code> \| <code>Array.&lt;string&gt;</code> | <code>&quot;modal&quot;</code> | The component CSS class name |
 | [options.fx] | <code>boolean</code> | <code>true</code> | Switch for allow effects |
 | [options.windowed] | <code>boolean</code> | <code>false</code> | Switch for framing in a window |
 | [options.cloning] | <code>boolean</code> | <code>true</code> | Allow cloning of passed element(s) |
@@ -71,6 +76,12 @@ Constructor method.
 | [options.onHide] | <code>function</code> |  | onHide callback, fires when hide modal, before it closes |
 | [options.onContent] | <code>function</code> |  | onContent callback, fires when a content will be shown |
 
+**Example**  
+```js
+var modal = new ensemble.Modal(document.getElementById('inline-content-to-display'), {});
+modal.open();
+modal.close();
+```
 <a name="module_ensemble..Modal+_defaults"></a>
 
 #### modal.\_defaults() ⇒ <code>object</code>

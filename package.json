@@ -4,7 +4,7 @@
   "description": "Repo with documentation files",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "docs-to-md": "node index.js"
   },
   "repository": "git+https://github.com/loltgt/ensemble-docs.git",
   "author": "Leonardo Laureti",
@@ -14,7 +14,10 @@
   },
   "homepage": "https://github.com/loltgt/ensemble-docs#readme",
   "devDependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.72",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.72"
+    "@docusaurus/core": "^2.0.0-alpha.73",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.73",
+    "glob": "^7.1.6",
+    "jsdoc": "^3.6.6",
+    "jsdoc-to-markdown": "^7.0.1"
   }
 }

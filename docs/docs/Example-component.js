@@ -9,14 +9,7 @@ class Example extends React.Component {
 
   componentDidMount() {
     this.load();
-
-    // this.elapsed = 0;
-    // this.timerID = setInterval(() => this.loaded(), 3e2);
   }
-
-  // componentWillUnmount() {
-  //   clearInterval(this.timerID);
-  // }
 
   loadScript(src, cb) {
     const script = document.createElement('script');
@@ -42,20 +35,6 @@ class Example extends React.Component {
     document.head.appendChild(style);
   }
 
-  // loaded() {
-  //   if ('ensemble' in window) {
-  //     clearInterval(this.timerID);
-
-  //     this.postLoad();
-  //   }
-
-  //   if (this.elapsed > 3e9) {
-  //     clearInterval(this.timerID);
-  //   }
-
-  //   this.elapsed += 3e2;
-  // }
-
   openTrigger(instance) {
     console.log(instance);
 
@@ -75,7 +54,8 @@ class ExampleModal extends Example {
   }
 
   postLoad() {
-    this.modal = new ensemble.Modal(document.getElementById('inline-content-to-display'));
+    //TODO arguments
+    this.modal = new ensemble.Modal(document.getElementById('inline-content-to-display'), {});
   }
 
   render() {
@@ -102,7 +82,7 @@ class ExampleLightbox extends Example {
   }
 
   postLoad() {
-    this.lightbox = new ensemble.Lightbox(null, {
+    this.lightbox = new ensemble.Lightbox({
       contents: [
         {
           'type': 'image',
@@ -130,7 +110,8 @@ class ExampleSocialShare extends Example {
   }
 
   postLoad() {
-    new ensemble.SocialShare(document.getElementById('my-div-placeholder'));
+    //TODO arguments
+    new ensemble.SocialShare(document.getElementById('my-div-placeholder'), {});
   }
 
   render() {

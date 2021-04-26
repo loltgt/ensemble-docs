@@ -9,11 +9,11 @@ TODO
 Example:
 
 ```js
-var lightbox = new ensemble.Lightbox(null, {
+var lightbox = new ensemble.Lightbox({
   contents: [
     {
-      'type': 'image',
-      'src': '../img/docusaurus.png'
+      type: 'image',
+      src: '../img/docusaurus.png'
     }
   ]
 });

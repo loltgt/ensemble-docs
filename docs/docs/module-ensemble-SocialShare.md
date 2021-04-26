@@ -8,7 +8,7 @@ slug: /module-ensemble-SocialShare
 
 * [ensemble](#module_ensemble)
     * [~SocialShare](#module_ensemble..SocialShare) ⇐ <code>base</code>
-        * [new SocialShare(element, options)](#new_module_ensemble..SocialShare_new)
+        * [new SocialShare([element], options)](#new_module_ensemble..SocialShare_new)
         * [._defaults()](#module_ensemble..SocialShare+_defaults) ⇒ <code>object</code>
         * [._bindings()](#module_ensemble..SocialShare+_bindings)
         * [.generator()](#module_ensemble..SocialShare+generator)
@@ -29,9 +29,13 @@ ensemble.SocialShare component.
 
 **Kind**: inner class of [<code>ensemble</code>](#module_ensemble)  
 **Extends**: <code>base</code>  
+**Todo**
+
+- [ ] arguments
+
 
 * [~SocialShare](#module_ensemble..SocialShare) ⇐ <code>base</code>
-    * [new SocialShare(element, options)](#new_module_ensemble..SocialShare_new)
+    * [new SocialShare([element], options)](#new_module_ensemble..SocialShare_new)
     * [._defaults()](#module_ensemble..SocialShare+_defaults) ⇒ <code>object</code>
     * [._bindings()](#module_ensemble..SocialShare+_bindings)
     * [.generator()](#module_ensemble..SocialShare+generator)
@@ -47,23 +51,35 @@ ensemble.SocialShare component.
 
 <a name="new_module_ensemble..SocialShare_new"></a>
 
-#### new SocialShare(element, options)
+#### new SocialShare([element], options)
 Constructor method.
 
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| element | <code>Element</code> |  | A valid Element node that will be replaced with this component |
-| options | <code>objects</code> |  | Options object |
+| [element] | <code>Element</code> |  | A valid Element node that will be replaced with this component |
+| options | <code>object</code> |  | Options object |
 | [options.ns] | <code>string</code> | <code>&quot;share&quot;</code> | The namespace for social share |
 | [options.root] | <code>string</code> | <code>&quot;body&quot;</code> | The root Element node |
-| [options.intents] | <code>object</code> |  | Activity intents |
+| [options.className] | <code>string</code> \| <code>Array.&lt;string&gt;</code> | <code>&quot;social-share&quot;</code> | The component CSS class name |
+| [options.link] | <code>string</code> | <code>&quot;&#x27;&#x27;&quot;</code> | The link, leave empty to auto-discover with selector or location.href |
+| [options.title] | <code>string</code> | <code>&quot;&#x27;&#x27;&quot;</code> | The title, leave empty to auto-discover with selector or window.title |
+| [options.description] | <code>string</code> | <code>&quot;&#x27;&#x27;&quot;</code> | The description, leave empty to auto-discover with selector |
+| [options.displays] | <code>object</code> | <code>null</code> | Actions to display, default to all |
+| [options.intents] | <code>object</code> |  | Action intents |
 | [options.uriform] | <code>object</code> |  | URI strings |
 | [options.label] | <code>object</code> |  | Custom parameters for label |
+| [options.selectorLink] | <code>object</code> |  | An element selector to find link |
+| [options.selectorTitle] | <code>object</code> |  | An element selector to find title |
+| [options.selectorDescription] | <code>object</code> |  | An element selector to find description |
 | [options.locale] | <code>object</code> |  | Localization |
 | [options.onInit] | <code>function</code> |  | onInit callback, fires when social share is initialized |
 | [options.onIntent] | <code>function</code> |  | onIntent callback, fires when an action is called |
 
+**Example**  
+```js
+new ensemble.SocialShare(document.getElementById('my-div-placeholder'), {});
+```
 <a name="module_ensemble..SocialShare+_defaults"></a>
 
 #### socialShare.\_defaults() ⇒ <code>object</code>
@@ -84,7 +100,7 @@ The generator creates almost everything the component needs and replaces the ele
 **Kind**: instance method of [<code>SocialShare</code>](#module_ensemble..SocialShare)  
 **Todo**
 
-- [ ] TODO
+- [ ] dataset
 
 <a name="module_ensemble..SocialShare+init"></a>
 
@@ -101,15 +117,18 @@ Initializes the component.
 #### socialShare.populate()
 In this stage the component is populated with all the content progeny.
 
-//global window.navigator.share
-
 **Kind**: instance method of [<code>SocialShare</code>](#module_ensemble..SocialShare)  
+**See**: window.navigator.share()  
 <a name="module_ensemble..SocialShare+action"></a>
 
 #### socialShare.action(intent, title)
 Creates the whole set of buttons.
 
 **Kind**: instance method of [<code>SocialShare</code>](#module_ensemble..SocialShare)  
+**Todo**
+
+- [ ] dataset
+
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -122,10 +141,12 @@ Creates the whole set of buttons.
 The intent activity.
 This method is called from each action.
 
-//global ensemble.Compo
-//global window.location
-
 **Kind**: instance method of [<code>SocialShare</code>](#module_ensemble..SocialShare)  
+**See**: window.location  
+**Todo**
+
+- [ ] url validation
+
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -153,9 +174,8 @@ Makes text substitutions and encodes to an URL
 #### socialShare.social(e, data)
 Generic social method for social network sharing intent.
 
-//global window.open
-
 **Kind**: instance method of [<code>SocialShare</code>](#module_ensemble..SocialShare)  
+**See**: window.open()  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -171,9 +191,8 @@ Generic social method for social network sharing intent.
 #### socialShare.sendEmail(e, data)
 Send email intent, it tries to open the default mail client.
 
-//global window.navigator.share
-
 **Kind**: instance method of [<code>SocialShare</code>](#module_ensemble..SocialShare)  
+**See**: window.open()  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -189,10 +208,16 @@ Send email intent, it tries to open the default mail client.
 #### socialShare.copyLink(e, data)
 Copy link intent, it tries to copy URL on the clipboard.
 
-//global document.createElement
-//global document.execCommand
-
 **Kind**: instance method of [<code>SocialShare</code>](#module_ensemble..SocialShare)  
+**See**
+
+- document.createElement()
+- document.execCommand()
+
+**Todo**
+
+- [ ] TODO
+
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -208,7 +233,5 @@ Copy link intent, it tries to copy URL on the clipboard.
 #### socialShare.webShare()
 Calls the native WebShare API for sharing.
 
-//global window.navigator.share
-
 **Kind**: instance method of [<code>SocialShare</code>](#module_ensemble..SocialShare)  
-
+**See**: window.navigator.share()  

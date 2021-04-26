@@ -24,6 +24,10 @@
   padding: 0 var(--ifm-pre-padding);
 }
 
+.footer__bottom {
+  margin: calc(4 * var(--ifm-pre-padding)) 0 0;
+}
+
 .example-block {
   margin: var(--ifm-pre-padding) 0 calc(2 * var(--ifm-pre-padding));
   font-size: 90%;

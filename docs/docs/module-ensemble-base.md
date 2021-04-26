@@ -8,9 +8,9 @@ slug: /module-ensemble-base
 
 * [ensemble](#module_ensemble)
     * *[~base](#module_ensemble..base)*
-        * *[new base()](#new_module_ensemble..base_new)*
+        * *[new base([element], options)](#new_module_ensemble..base_new)*
         * *[.defaults(defaults, options)](#module_ensemble..base+defaults) ⇒ <code>object</code>*
-        * *[.compo(ns, tag, name)](#module_ensemble..base+compo) ⇒ <code>mixed</code>*
+        * *[.compo(ns, [tag], [name])](#module_ensemble..base+compo) ⇒ <code>mixed</code>*
         * *[.data(obj)](#module_ensemble..base+data) ⇒ <code>mixed</code>*
         * *[.event(obj)](#module_ensemble..base+event) ⇒ <code>mixed</code>*
         * *[.selector(query, node, all)](#module_ensemble..base+selector) ⇒ <code>mixed</code>*
@@ -34,9 +34,9 @@ A base class for ensemble components.
 **Kind**: inner abstract class of [<code>ensemble</code>](#module_ensemble)  
 
 * *[~base](#module_ensemble..base)*
-    * *[new base()](#new_module_ensemble..base_new)*
+    * *[new base([element], options)](#new_module_ensemble..base_new)*
     * *[.defaults(defaults, options)](#module_ensemble..base+defaults) ⇒ <code>object</code>*
-    * *[.compo(ns, tag, name)](#module_ensemble..base+compo) ⇒ <code>mixed</code>*
+    * *[.compo(ns, [tag], [name])](#module_ensemble..base+compo) ⇒ <code>mixed</code>*
     * *[.data(obj)](#module_ensemble..base+data) ⇒ <code>mixed</code>*
     * *[.event(obj)](#module_ensemble..base+event) ⇒ <code>mixed</code>*
     * *[.selector(query, node, all)](#module_ensemble..base+selector) ⇒ <code>mixed</code>*
@@ -54,9 +54,19 @@ A base class for ensemble components.
 
 <a name="new_module_ensemble..base_new"></a>
 
-#### *new base()*
+#### *new base([element], options)*
 Constructor method.
 
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [element] | <code>Element</code> | A valid element, could be used within the extending class |
+| options | <code>object</code> | Options object |
+
+**Example**  
+```js
+new base([, element], options)
+```
 <a name="module_ensemble..base+defaults"></a>
 
 #### *base.defaults(defaults, options) ⇒ <code>object</code>*
@@ -73,21 +83,20 @@ Note it supports only the first level of depth.
 
 <a name="module_ensemble..base+compo"></a>
 
-#### *base.compo(ns, tag, name) ⇒ <code>mixed</code>*
+#### *base.compo(ns, [tag], [name]) ⇒ <code>mixed</code>*
 Shorthand method for ensemble.Compo class.
 
 When passed the first argument it makes a new Compo instance, 
 otherwise it returns a reference to the Compo class.
 
-//global ensemble.Compo
-
 **Kind**: instance method of [<code>base</code>](#module_ensemble..base)  
+**Returns**: <code>mixed</code> - Instance of ensemble.Data -or- ensemble.Data class reference  
 
-| Param | Type | Description |
-| --- | --- | --- |
-| ns | <code>string</code> | Composition namespace |
-| tag | <code>string</code> | The [DOM] Element node tag -or- component name |
-| name | <code>string</code> |  |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| ns | <code>string</code> |  | Composition namespace |
+| [tag] | <code>string</code> | <code>&quot;&#x27;div&#x27;&quot;</code> | The [DOM] Element node tag -or- component name, empty for ensemble.Compo class reference |
+| [name] | <code>mixed</code> |  | The composition name, used for CSS className |
 
 <a name="module_ensemble..base+data"></a>
 
@@ -97,13 +106,12 @@ Shorthand method for ensemble.Data class.
 When passed the first argument it makes a new Data instance, 
 otherwise it returns a reference to the Data class.
 
-//global ensemble.Data
-
 **Kind**: instance method of [<code>base</code>](#module_ensemble..base)  
+**Returns**: <code>mixed</code> - Instance of ensemble.Data -or- ensemble.Data class reference  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| obj | <code>object</code> | A starter Object |
+| obj | <code>object</code> | A starter Object, empty for ensemble.Data class reference |
 
 <a name="module_ensemble..base+event"></a>
 
@@ -114,13 +122,11 @@ When the passed first argument is a string it makes a new Event instance,
 if you pass an Event as the first argument, a preventDefault and blur will be performed, 
 otherwise it returns a reference to the Event class.
 
-//global ensemble.Event
-
 **Kind**: instance method of [<code>base</code>](#module_ensemble..base)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| obj | <code>object</code> | A starter Object |
+| obj | <code>object</code> | A starter Object, empty for ensemble.Event class reference |
 
 <a name="module_ensemble..base+selector"></a>
 
@@ -133,8 +139,6 @@ Shortcut to querySelectorAll() and querySelector() [DOM].
 
 - Element.querySelectorAll()
 - Element.querySelector()
-
-//global document
 
 
 | Param | Type | Default | Description |
@@ -269,9 +273,7 @@ Creates a proxy function with bindings to instance and optionally an event.
 Provides a delay and executes a callback function
 
 **Kind**: instance method of [<code>base</code>](#module_ensemble..base)  
-**See**: setTimeout()
-
-//global window.setTimeout  
+**See**: window.setTimeout()  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -284,11 +286,9 @@ Provides a delay and executes a callback function
 #### *base.timing(node, prop) ⇒ <code>int</code>*
 Calculates a time, based on a time property of the style of an element
 
-//global ensemble.Compo
-//global window.getComputedStyle
-
 **Kind**: instance method of [<code>base</code>](#module_ensemble..base)  
 **Returns**: <code>int</code> - time - Number of time in milliseconds  
+**See**: window.getComputedStyle()  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |

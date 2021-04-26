@@ -17,7 +17,6 @@ slug: /module-ensemble-Data
             * [.reflow(slot, force)](#module_ensemble..Data+reflow)
         * _static_
             * [.isData()](#module_ensemble..Data.isData) ⇒ <code>boolean</code>
-    * [~_Symbol](#module_ensemble.._Symbol)
 
 <a name="module_ensemble..Data"></a>
 
@@ -53,11 +52,7 @@ Constructor method.
 
 **Example**  
 ```js
-new ensemble.Data('namespace-of-my-foo-component', {
-  compo: ensemble.Compo,
-  foo: 'a text string',
-  fooObj: 'an object'
-});
+new ensemble.Data('namespace-of-my-foo-component', { compo: ensemble.Compo, foo: 'a text string', fooObj: 'an object' });
 ```
 <a name="module_ensemble..Data+_Symbol.toStringTag"></a>
 
@@ -79,8 +74,6 @@ The compo method is a utility render.
 When you create a composition with this method, it will create a Compo composition or simply an Object placeholder.
 With the defer render you can have it rendered in place, refresh, or freeze.
 
-//global ensemble.Compo
-
 **Kind**: instance method of [<code>Data</code>](#module_ensemble..Data)  
 **Returns**: <code>mixed</code> - compo - An ensemble.Compo element -or- an Object placeholder  
 
@@ -97,8 +90,6 @@ With the defer render you can have it rendered in place, refresh, or freeze.
 
 #### data.render(slot)
 Renderizes a composition, passed by reference.
-
-//global ensemble.Compo
 
 **Kind**: instance method of [<code>Data</code>](#module_ensemble..Data)  
 
@@ -135,14 +126,6 @@ Refresh a composition, passed by reference.
 Check if passed object is an ensemble.Data instance.
 
 **Kind**: static method of [<code>Data</code>](#module_ensemble..Data)  
-**Todo**
-
-- [ ] backward compatibility
-
-<a name="module_ensemble.._Symbol"></a>
-
-### ensemble~\_Symbol
-**Kind**: inner constant of [<code>ensemble</code>](#module_ensemble)  
 **Todo**
 
 - [ ] backward compatibility

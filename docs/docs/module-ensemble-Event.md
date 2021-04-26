@@ -15,7 +15,6 @@ slug: /module-ensemble-Event
             * [.remove(handle)](#module_ensemble..Event+remove)
         * _static_
             * [.isEvent()](#module_ensemble..Event.isEvent) ⇒ <code>boolean</code>
-    * [~_Symbol](#module_ensemble.._Symbol)
 
 <a name="module_ensemble..Event"></a>
 
@@ -29,8 +28,6 @@ It is a wrapper around the native Event [DOM].
 
 - Element.addEventListener()
 - Element.removeElementListener()
-
-//global ensemble.Compo
 
 
 * [~Event](#module_ensemble..Event)
@@ -56,12 +53,7 @@ Constructor method.
 
 **Example**  
 ```js
-new ensemble.Event('namespace-of-my-foo-component', 'mousewheel', node)
-  .add(func, {
-    capture: true
-  });
-
-  .remove(func);
+new ensemble.Event('namespace-of-my-foo-component', 'mousewheel', node).add(func, { capture: true });
 ```
 <a name="module_ensemble..Event+_Symbol.toStringTag"></a>
 
@@ -110,14 +102,6 @@ Removes an event from this composition.
 Check if passed object is an ensemble.Event instance.
 
 **Kind**: static method of [<code>Event</code>](#module_ensemble..Event)  
-**Todo**
-
-- [ ] backward compatibility
-
-<a name="module_ensemble.._Symbol"></a>
-
-### ensemble~\_Symbol
-**Kind**: inner constant of [<code>ensemble</code>](#module_ensemble)  
 **Todo**
 
 - [ ] backward compatibility
