@@ -1,6 +1,6 @@
 {
   "name": "ensemble-docs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Repo with documentation files",
   "main": "index.js",
   "scripts": {
