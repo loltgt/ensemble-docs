@@ -1,13 +1,8 @@
-# ensemble docs
+# ensemble-docs
 
-Repo with documentation files.
+**Deprecated repository**
 
-Test here: https://loltgt.github.io/ensemble/
-
-
- 
-
-**beta stage**
+See ensemble repository at: https://github.com/loltgt/ensemble
 
  
 
